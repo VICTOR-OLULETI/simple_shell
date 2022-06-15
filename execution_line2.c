@@ -33,9 +33,9 @@ int is_executable(info_shell *datahsh)
 	input = datahsh->args[0];
 	for (i = 0; input[i]; i++)
 	{
-
 		if (input[i] == '.')
 		{
+
 			if (input[i + 1] == '.')
 				return (0);
 			if (input[i + 1] == '/')
@@ -45,6 +45,7 @@ int is_executable(info_shell *datahsh)
 		}
 		else if (input[i] == '/' && i != 0)
 		{
+
 			if (input[i + 1] == '.')
 				continue;
 			i++;
