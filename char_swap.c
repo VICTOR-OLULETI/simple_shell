@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * char_swap - swaps | and & for nonprinted characters
+ * char_swap - swaps ||  and & for nonprinted characters
  * @input: input string
  * @bool: bool helps to control swapping
  * Return: string swapped
