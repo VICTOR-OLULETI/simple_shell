@@ -14,9 +14,11 @@ int char_first(char *input, int *index)
 		if (input[*index] == ' ' || input[*index] == '\t')
 			continue;
 		if (input[*index] == ';' || input[*index] == '|'
-		    || input[*index] == '&')
+		    || input[*index] == '&'
+		    || input[*index] == '#'
+		    || input[*index] == '\\'
+		    || input [*index] == '$')
 			return (-1);
-		break;
 	}
 
 	return (0);
