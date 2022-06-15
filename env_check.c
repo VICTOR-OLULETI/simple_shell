@@ -11,7 +11,7 @@
 void env_check(r_var **h, char *input, info_shell *data)
 {
 	int row, chr, j, lval;
-	char **__eviron;
+	char **__environ;
 
 	__environ = data->_environ;
 	for (row = 0; __environ[row]; row++)
