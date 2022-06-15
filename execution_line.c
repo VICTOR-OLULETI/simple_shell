@@ -131,7 +131,11 @@ int exect_line(info_shell *datahsh)
 
 	if (datahsh->args[0] == NULL)
 		return (1);
-
+	if (datahsh->args[1])
+	{
+		get_error(datahsh, 127);
+		return (1);
+	}
 	builtin = get_builtin(datahsh->args[0]);
 	if (builtin != NULL)
 		return (builtin(datahsh));
