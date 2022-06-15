@@ -136,7 +136,7 @@ r_var *add_rvar_node(r_var **head, int lvar, char *val, int lval)
 	else
 	{
 		while (temp->next != NULL)
-				temp = temp->next;
+			temp = temp->next;
 		temp->next = new;
 	}
 	return (*head);

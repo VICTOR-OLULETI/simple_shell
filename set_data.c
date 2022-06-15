@@ -2,7 +2,7 @@
 
 /**
  * get_sigint - handles ctrl + c when entered
- * sig: signal handler
+ * @sig: signal handler
  * Return: void.
  */
 void get_sigint(int sig)

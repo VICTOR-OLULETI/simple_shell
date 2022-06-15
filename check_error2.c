@@ -8,7 +8,7 @@
  */
 int check_error(info_shell *datahsh, char *input)
 {
-	int start = 0, f_char = 0, i = 0;	
+	int start = 0, f_char = 0, i = 0;
 
 	f_char = char_first(input, &start);
 	if (f_char == -1)

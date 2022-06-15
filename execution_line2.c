@@ -66,7 +66,7 @@ int is_executable(info_shell *datahsh)
  * check_access - checks if user has permission to access
  * @dir: directory destination
  * @datahsh: data
- * Return: 1 if error, or 0 
+ * Return: 1 if error, or 0
  */
 int check_access(char *dir, info_shell *datahsh)
 {

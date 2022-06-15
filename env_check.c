@@ -33,7 +33,8 @@ void env_check(r_var **h, char *input, info_shell *data)
 
 	for (j = 0; input[j]; j++)
 	{
-		if (input[j] == ' ' || input[j] == '\t' || input[j] == ';' || input[j] == '\n')
+		if (input[j] == ' ' || input[j] == '\t' || input[j] == ';'
+		    || input[j] == '\n')
 			break;
 	}
 

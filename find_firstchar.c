@@ -9,11 +9,12 @@
  */
 int char_first(char *input, int *index)
 {
-	for(*index = 0; input[*index]; *index += 1)
+	for (*index = 0; input[*index]; *index += 1)
 	{
-		if (input[*index] ==' ' || input[*index] == '\t')
+		if (input[*index] == ' ' || input[*index] == '\t')
 			continue;
-		if (input[*index] == ';' || input[*index] == '|' || input[*index] == '&')
+		if (input[*index] == ';' || input[*index] == '|'
+		    || input[*index] == '&')
 			return (-1);
 		break;
 	}
