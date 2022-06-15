@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * shell_loop - loopint the shell
+ * shell_loop - looping the shell
  * @datahsh: data
  *
  * Return: void.
