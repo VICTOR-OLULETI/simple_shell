@@ -14,7 +14,7 @@ void shell_loop(info_shell *datahsh)
 	loopint = 1;
 	while (loopint == 1)
 	{
-		write(STDIN_FILENO, "^-^ ", 4);
+		write(STDIN_FILENO, "($) ", 4);
 		input = read_line(&ieof);
 		if (ieof != -1)
 		{
