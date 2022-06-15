@@ -33,6 +33,7 @@ int is_executable(info_shell *datahsh)
 	input = datahsh->args[0];
 	for (i = 0; input[i]; i++)
 	{
+
 		if (input[i] == '.')
 		{
 			if (input[i + 1] == '.')
