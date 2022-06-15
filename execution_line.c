@@ -83,7 +83,7 @@ int cmd_exec(info_shell *datahsh)
 	pid_t pd;
 	pid_t wpd;
 	int state, exec;
-	char *dir, *dirr;
+	char *dir;
 	(void) wpd;
 
 	exec = is_executable(datahsh);
