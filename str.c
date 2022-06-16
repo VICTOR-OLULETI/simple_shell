@@ -50,7 +50,7 @@ char *_strcpy(char *dest, char *src)
 
 int _strcmp(char *s1, char *s2)
 {
-	unsigned int i;
+	int i;
 
 	for (i = 0; s1[i] == s2[i] && s1[i]; i++)
 		;
@@ -73,7 +73,7 @@ char *_strchr(char *s, char c)
 {
 	unsigned int i = 0;
 
-	for (i = 0; *(s + i) != '\0'; i++)
+	for (; *(s + i) != '\0'; i++)
 	{
 		if (*(s + i) == c)
 			return (s + i);

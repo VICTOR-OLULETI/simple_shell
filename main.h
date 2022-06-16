@@ -11,6 +11,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <limits.h>
+#include <string.h>
 
 #define BUFSIZE 1024
 #define TOK_BUFSIZE 128
@@ -131,11 +132,11 @@ char *_itoa(int n);
 int _atoi(char *s);
 
 /**
- * struct builtin_c -  builtin struc for command arguments
+ * struct builtin_s -  builtin struc for command arguments
  * @name: name of the builtin command i.e cd, env, exit
  * @f: pointer function
  */
-typedef struct builtin_c
+typedef struct builtin_s
 {
 	char *name;
 	int (*f)(info_shell *datahsh);
@@ -235,4 +236,5 @@ int cmpenvname(const char *n_env, const char *name);
 /* set and free data */
 void free_data(info_shell *datahs);
 void set_data(info_shell *datahsh, char **av);
+
 #endif

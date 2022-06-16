@@ -16,7 +16,7 @@ int cd_shell(info_shell *datahsh)
 	if (dir != NULL)
 	{
 		ishome = _strcmp("$HOME", dir);
-		ishome2 = _strcmp("-", dir);
+		ishome2 = _strcmp("~", dir);
 		isddash = _strcmp("--", dir);
 	}
 	if (dir == NULL || !ishome || !ishome2 || !isddash)

@@ -12,7 +12,8 @@ char *error_env(info_shell *datahsh)
 
 	ver_str = _itoa(datahsh->counter);
 	msg = ": Unable to add/remove from environment\n";
-	length = _strlen(datahsh->av[0]) + _strlen(msg) + 4;
+	length = _strlen(datahsh->av[0]) + _strlen(ver_str);
+	length += _strlen(datahsh->args[0]) + _strlen(msg) + 4;
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
 	{
@@ -25,6 +26,7 @@ char *error_env(info_shell *datahsh)
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");
+	_strcat(error, datahsh->args[0]);
 	_strcat(error, msg);
 	_strcat(error, "\0");
 	free(ver_str);

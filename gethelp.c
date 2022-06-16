@@ -24,7 +24,8 @@ int get_help(info_shell *datahsh)
 	else if (_strcmp(datahsh->args[1], "alias") == 0)
 		help_alias();
 	else
-		write(STDERR_FILENO, datahsh->args[0], _strlen(datahsh->args[0]));
+		write(STDERR_FILENO, datahsh->args[0],
+			_strlen(datahsh->args[0]));
 	datahsh->status = 0;
 	return (1);
 }

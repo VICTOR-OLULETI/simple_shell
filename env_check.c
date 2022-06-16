@@ -11,20 +11,20 @@
 void env_check(r_var **h, char *input, info_shell *data)
 {
 	int row, chr, j, lval;
-	char **__environ;
+	char **_envr;
 
-	__environ = data->_environ;
-	for (row = 0; __environ[row]; row++)
+	_envr = data->_environ;
+	for (row = 0; _envr[row]; row++)
 	{
-		for (j = 1, chr = 0; __environ[row][chr]; chr++)
+		for (j = 1, chr = 0; _envr[row][chr]; chr++)
 		{
-			if (__environ[row][chr] == '=')
+			if (_envr[row][chr] == '=')
 			{
-				lval = _strlen(__environ[row] + chr + 1);
-				add_rvar_node(h, j, __environ[row] + chr + 1, lval);
+				lval = _strlen(_envr[row] + chr + 1);
+				add_rvar_node(h, j, _envr[row] + chr + 1, lval);
 				return;
 			}
-		if (input[j] == __environ[row][chr])
+		if (input[j] == _envr[row][chr])
 			j++;
 		else
 			break;

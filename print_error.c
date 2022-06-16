@@ -31,7 +31,7 @@ void print_error(info_shell *datahsh, char *input, int index, int bool)
 	message3 = "\" unexpected\n";
 	counter = _itoa(datahsh->counter);
 	length = _strlen(datahsh->av[0]) + _strlen(counter);
-	length += _strlen(message) + _strlen(message) + _strlen(message3) + 2;
+	length += _strlen(message) + _strlen(message2) + _strlen(message3) + 2;
 
 	error_msg = malloc(sizeof(char) * (length + 1));
 	if (error_msg == 0)
@@ -50,4 +50,3 @@ void print_error(info_shell *datahsh, char *input, int index, int bool)
 	free(error_msg);
 	free(counter);
 }
-

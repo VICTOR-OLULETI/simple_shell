@@ -81,10 +81,12 @@ char *error_get_cd(info_shell *datahsh)
 char *error_not_found(info_shell *datahsh)
 {
 	int length;
-	char *error, *ver_str;
+	char *error;
+       	char *ver_str;
 
 	ver_str = _itoa(datahsh->counter);
 	length = _strlen(datahsh->av[0]) + _strlen(ver_str);
+	length += _strlen(datahsh->args[0]) + 16;
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
 	{
@@ -93,7 +95,6 @@ char *error_not_found(info_shell *datahsh)
 		return (NULL);
 	}
 	_strcpy(error, datahsh->av[0]);
-	_strcat(error, ": ");
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
 	_strcat(error, ": ");
@@ -112,7 +113,8 @@ char *error_not_found(info_shell *datahsh)
 char *error_shell_exit(info_shell *datahsh)
 {
 	int length;
-	char *error, *ver_str;
+	char *error;
+	char *ver_str;
 
 	ver_str = _itoa(datahsh->counter);
 	length = _strlen(datahsh->av[0]) + _strlen(ver_str);
