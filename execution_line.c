@@ -8,12 +8,12 @@
 int (*get_builtin(char *cmd))(info_shell *)
 {
 	builtin_t builtin[] = {
-		{ "cdi", cd_shell },
-		{ "helpi", get_help },
-		{ "envi", _env },
-		{ "setenvi", _setenv},
-		{ "unsetenvi", _unsetenv },
-		{ "exiti", shell_exit },
+		{ "cd", cd_shell },
+		{ "help", get_help },
+		{ "env", _env },
+		{ "setenv", _setenv},
+		{ "unsetenv", _unsetenv },
+		{ "exit", shell_exit },
 		{ NULL, NULL }
 	};
 	int i;
