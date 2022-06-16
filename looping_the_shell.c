@@ -18,7 +18,7 @@ void shell_loop(info_shell *datahsh)
 		input = read_line(&ieof);
 		if (ieof != -1)
 		{
-			input = without_comment(input);
+			/*input = without_comment(input);*/
 			if (input == NULL)
 				continue;
 			if (check_error(datahsh, input) == 1)
@@ -27,7 +27,7 @@ void shell_loop(info_shell *datahsh)
 				free(input);
 				continue;
 			}
-			input = replace_var(input, datahsh);
+			/* input = replace_var(input, datahsh);*/
 			loopint = splits_command(datahsh, input);
 			datahsh->counter += 1;
 			free(input);
