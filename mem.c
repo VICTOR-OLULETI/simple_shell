@@ -1,30 +1,31 @@
 #include "main.h"
 
 /**
- * _memcpy - copies a block of memory
+ * _memcpy - copies information to a new pointer
  * @newptr: new pointer
- * @ptr: old pointer to block of memory
- * @size: size of ptr
+ * @ptr: source pointer
+ * @size: size of new pointer
  *
- * Return: void
+ * Return: void.
  */
+
 void _memcpy(void *newptr, const void *ptr, unsigned int size)
 {
-	char *char_ptr = (char *) ptr;
-	char *char_newptr = (char *) newptr;
-	unsigned int i;
+	char *char_ptr = (char *)ptr;
+	char *char_newptr = (char *)newptr;
+	unsigned int j;
 
-	for (i = 0; i < size; i++)
-		char_newptr[i] = char_ptr[i];
+	for (j =  0; j < size; j++)
+		char_newptr[j] = char_ptr[j];
 }
 
 /**
- * _realloc - reallocates a block of memory
- * @ptr: new pointer
- * @old_size: size of old block of memory
- * @new_size: new size to be realloated
+ * _realloc - reallocates a memory block
+ * @ptr: pointer to the previously allocated memory
+ * @old_size: size of previously allocated memory
+ * @new_size: new size of newly allocated memory bloc
  *
- * Return: void.
+ * Return: pointer to new memory or NULL if malloc fails
  */
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
@@ -52,12 +53,12 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 }
 
 /**
- * _reallocdp - reallocated a double pointer
- * @ptr: new double pointer
- * @old_size: size of previous block of memory
- * @new_size: size of new block of memory
+ * _reallocdp - reallocates a block of memory of a double ptr
+ * @ptr: double pointer to previously allocated memory.
+ * @old_size: size of the previously allocated memory.
+ * @new_size: size of newly allocated memory
  *
- * Return: pointer to new allocated memory.
+ * Return: pointer to new block of memory or NULL if failure
  */
 
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
@@ -69,14 +70,12 @@ char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size)
 		return (malloc(sizeof(char *) * new_size));
 	if (new_size == old_size)
 		return (ptr);
-
 	newptr = malloc(sizeof(char *) * new_size);
 	if (newptr == NULL)
 		return (NULL);
-
 	for (i = 0; i < old_size; i++)
 		newptr[i] = ptr[i];
-
 	free(ptr);
+
 	return (newptr);
 }

@@ -1,24 +1,24 @@
 #include "main.h"
 
 /**
- * get_len - gets length
- * @n: number to be checked
+ * get_len -gets length of a num
+ * @num: integer number
  *
- * Return: integer length
+ * Return: length of a number
  */
-int get_len(int n)
+int get_len(int num)
 {
 	unsigned int n1;
 	int length = 1;
 
-	if (n < 0)
+	if (num < 0)
 	{
 		length++;
-		n1 = n * -1;
+		n1 = num * -1;
 	}
 	else
 	{
-		n1 = n;
+		n1 = num;
 	}
 	while (n1 > 9)
 	{
@@ -27,32 +27,32 @@ int get_len(int n)
 	}
 	return (length);
 }
-
 /**
- * _itoa- turns integer to string
- * @n: n is the integer
+ * _itoa - converts int to string
+ * @num: int number
  *
- * Return: integer in string form
+ * Return: stringified number
  */
-char *_itoa(int n)
+char *_itoa(int num)
 {
 	unsigned int n1;
-	int length = get_len(n);
+	int length;
 	char *buffer;
 
+	length = get_len(num);
 	buffer = malloc(sizeof(char) * (length + 1));
 	if (buffer == 0)
 		return (NULL);
-	*(buffer + length) = '\0';
 
-	if (n < 0)
+	*(buffer + length) = '\0';
+	if (num < 0)
 	{
-		n1 = n * -1;
+		n1 = num * -1;
 		buffer[0] = '-';
 	}
 	else
 	{
-		n1 = n;
+		n1 = num;
 	}
 	length--;
 	do {
@@ -65,10 +65,10 @@ char *_itoa(int n)
 	return (buffer);
 }
 /**
- * _atoi- turns string to integer
- * @s: str is the string
+ * _atoi - converts string to integer
+ * @s: input string
  *
- * Return: integer
+ * Return: integer value.
  */
 int _atoi(char *s)
 {

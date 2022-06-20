@@ -1,17 +1,20 @@
 #include "main.h"
 
 /**
- * error_env - error message for env in get_env.
+ * error_env - error messages for env
  * @datahsh: data
- * Return: error message.
+ *
+ * Return: error
  */
 char *error_env(info_shell *datahsh)
 {
 	int length;
-	char *error, *ver_str, *msg;
+	char *error;
+	char *ver_str;
+	char *msg;
 
 	ver_str = _itoa(datahsh->counter);
-	msg = ": Unable to add/remove from environment\n";
+	msg = ": Unable to add or remove from environment\n";
 	length = _strlen(datahsh->av[0]) + _strlen(ver_str);
 	length += _strlen(datahsh->args[0]) + _strlen(msg) + 4;
 	error = malloc(sizeof(char) * (length + 1));
@@ -21,7 +24,6 @@ char *error_env(info_shell *datahsh)
 		free(ver_str);
 		return (NULL);
 	}
-
 	_strcpy(error, datahsh->av[0]);
 	_strcat(error, ": ");
 	_strcat(error, ver_str);
@@ -33,16 +35,19 @@ char *error_env(info_shell *datahsh)
 
 	return (error);
 }
+
 /**
  * error_path_126 - error message for path and failure denied permission.
  * @datahsh: data
- * Return: The error string.
+ *
+ * Return: error string
  */
 
 char *error_path_126(info_shell *datahsh)
 {
 	int length;
-	char *ver_str, *error;
+	char *ver_str;
+	char *error;
 
 	ver_str = _itoa(datahsh->counter);
 	length = _strlen(datahsh->av[0]) + _strlen(ver_str);

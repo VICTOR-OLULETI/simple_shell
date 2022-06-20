@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * strcat_cd - concatenates message for cd error
+ * strcat_cd - error messages for cd errors
  * @datahsh: data
- * @msg: message to pring.
+ * @msg: error message
  * @error: output message
- * @ver_str: counter lines
+ * @ver_str: line counter
+ *
  * Return: error message
  */
-
 char *strcat_cd(info_shell *datahsh, char *msg, char *error, char *ver_str)
 {
-	char *illegal_flag;
+	char *i_flag;
 
 	_strcpy(error, datahsh->av[0]);
 	_strcat(error, ": ");
@@ -19,14 +19,16 @@ char *strcat_cd(info_shell *datahsh, char *msg, char *error, char *ver_str)
 	_strcat(error, ": ");
 	_strcat(error, datahsh->args[0]);
 	_strcat(error, msg);
+
 	if (datahsh->args[1][0] == '-')
 	{
-		illegal_flag = malloc(3);
-		illegal_flag[0] = '-';
-		illegal_flag[1] = datahsh->args[1][1];
-		illegal_flag[2] = '\0';
-		_strcat(error, illegal_flag);
-		free(illegal_flag);
+		i_flag = malloc(3);
+		i_flag[0] = '-';
+		i_flag[1] = datahsh->args[1][1];
+		i_flag[2] = '\0';
+
+		_strcat(error, i_flag);
+		free(i_flag);
 	}
 	else
 	{
@@ -36,10 +38,10 @@ char *strcat_cd(info_shell *datahsh, char *msg, char *error, char *ver_str)
 	_strcat(error, "\0");
 	return (error);
 }
-
 /**
- * error_get_cd - error messagefor cd commands in get_cd
+ * error_get_cd - error message for cd_command
  * @datahsh: data
+ *
  * Return: error message
  */
 char *error_get_cd(info_shell *datahsh)
@@ -48,6 +50,7 @@ char *error_get_cd(info_shell *datahsh)
 	char *error, *ver_str, *msg;
 
 	ver_str = _itoa(datahsh->counter);
+
 	if (datahsh->args[1][0] == '-')
 	{
 		msg = ": Illegal option ";
@@ -58,7 +61,6 @@ char *error_get_cd(info_shell *datahsh)
 		msg = ": can't cd to ";
 		len_id = _strlen(datahsh->args[1]);
 	}
-
 	length = _strlen(datahsh->av[0]) + _strlen(datahsh->args[0]);
 	length += _strlen(ver_str) + _strlen(msg) + len_id + 5;
 	error = malloc(sizeof(char) * (length + 1));
@@ -67,26 +69,27 @@ char *error_get_cd(info_shell *datahsh)
 		free(ver_str);
 		return (NULL);
 	}
-
 	error = strcat_cd(datahsh, msg, error, ver_str);
 	free(ver_str);
+
 	return (error);
 }
-
 /**
- * error_not_found - error message for command not found
- * @datahsh: dat
+ * error_not_found - error message for commands not found
+ * @datahsh: data
+ *
  * Return: error message
  */
 char *error_not_found(info_shell *datahsh)
 {
 	int length;
 	char *error;
-       	char *ver_str;
+	char *ver_str;
 
 	ver_str = _itoa(datahsh->counter);
 	length = _strlen(datahsh->av[0]) + _strlen(ver_str);
 	length += _strlen(datahsh->args[0]) + 16;
+
 	error = malloc(sizeof(char) * (length + 1));
 	if (error == 0)
 	{
@@ -106,8 +109,9 @@ char *error_not_found(info_shell *datahsh)
 }
 
 /**
- * error_shell_exit - error message for exit in get_exit
+ * error_shell_exit - error message for exit
  * @datahsh: data
+ *
  * Return: error message
  */
 char *error_shell_exit(info_shell *datahsh)
